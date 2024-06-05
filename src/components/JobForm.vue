@@ -39,6 +39,22 @@ export default {
         status: 'open',
         visible_to: '3',
         custom_fields: {
+          details: {
+            'First Name': this.form.firstName,
+            'Last Name': this.form.lastName,
+            'Phone': this.form.phone,
+            'Email': this.form.email,
+            'Job Description': this.form.jobDescription,
+            'Address': this.form.address,
+            'City': this.form.city,
+            'State': this.form.state,
+            'Zip Code': this.form.zipCode,
+            'Area': this.form.area,
+            'Start Date': this.form.startDate,
+            'Start Time': this.form.startTime,
+            'End Time': this.form.endTime,
+            'Test Select': this.form.testSelect
+          }
         }
       };
 
