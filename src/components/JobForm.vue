@@ -66,46 +66,133 @@ export default {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">
-    <div>
-      <h3>Client details</h3>
-      <input v-model="form.firstName" placeholder="First name" required type="text">
-      <input v-model="form.lastName" placeholder="Last name" required type="text">
-      <input v-model="form.phone" placeholder="Phone" required type="text">
-      <input v-model="form.email" placeholder="Email (optional)" type="email">
-    </div>
-    <div>
-      <h3>Job details</h3>
-      <input v-model="form.jobType" placeholder="Job type" required type="text">
-      <input v-model="form.jobSource" placeholder="Job source" required type="text">
-      <textarea v-model="form.jobDescription" placeholder="Job description (optional)"></textarea>
-    </div>
-    <div>
-      <h3>Service location</h3>
-      <input v-model="form.address" placeholder="Address" required type="text">
-      <input v-model="form.city"  placeholder="City" required type="text">
-      <input v-model="form.state" placeholder="State" required type="text">
-      <input v-model="form.zipCode" placeholder="Zip code" required type="text">
-      <input v-model="form.area" placeholder="Area" type="text">
-    </div>
-    <div>
-      <h3>Scheduled</h3>
-      <label>Дата начала:</label>
-      <input v-model="form.startDate" placeholder="Start date" required type="date">
-      <label>Время начала:</label>
-      <input v-model="form.startTime" placeholder="Start time" required type="time">
-      <label>Время окончания:</label>
-      <input v-model="form.endTime" placeholder="End time" required type="time">
-      <select v-model="form.testSelect">
-        <option value="option0">Test select</option>
-        <option value="option1">select 1</option>
-        <option value="option2">select 2</option>
-      </select>
-    </div>
-    <button type="submit">Отправить</button>
-  </form>
+  <div class="form-container">
+    <form @submit.prevent="handleSubmit">
+      <div class="form-grid">
+        <div class="form-section">
+          <h3>Client details</h3>
+          <div class="name-fields">
+            <input v-model="form.firstName" placeholder="First name" required type="text">
+            <input v-model="form.lastName" placeholder="Last name" required type="text">
+          </div>
+          <input v-model="form.phone" placeholder="Phone" required type="text">
+          <input v-model="form.email" placeholder="Email (optional)" type="email">
+        </div>
+        <div class="form-section">
+          <h3>Job details</h3>
+          <div class="name-fields">
+            <input v-model="form.jobType" placeholder="Job type" required type="text">
+            <input v-model="form.jobSource" placeholder="Job source" required type="text">
+          </div>
+          <textarea v-model="form.jobDescription" placeholder="Job description (optional)"></textarea>
+        </div>
+        <div class="form-section">
+          <h3>Service location</h3>
+          <input v-model="form.address" placeholder="Address" required type="text">
+          <input v-model="form.city" placeholder="City" required type="text">
+          <input v-model="form.state" placeholder="State" required type="text">
+          <div class="name-fields">
+            <input v-model="form.zipCode" placeholder="Zip code" required type="text">
+            <input v-model="form.area" placeholder="Area" type="text">
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>Scheduled</h3>
+          <input v-model="form.startDate" placeholder="Start date" required type="date">
+          <div class="name-fields">
+            <input v-model="form.startTime" placeholder="Start time" required type="time">
+            <input v-model="form.endTime" placeholder="End time" required type="time">
+          </div>
+          <select v-model="form.testSelect">
+            <option value="option0">Test select</option>
+            <option value="option1">select 1</option>
+            <option value="option2">select 2</option>
+          </select>
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit">Create job</button>
+        <button disabled>Save info</button>
+      </div>
+    </form>
+  </div>
 </template>
 
-
 <style scoped>
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.form-section {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.name-fields {
+  display: flex;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[name="firstName"],
+input[name="lastName"] {
+  flex: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+button[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
 </style>
+
