@@ -29,17 +29,16 @@ export default {
 
       const data = {
         title: `${this.form.jobType} - ${this.form.jobSource}`,
-        person_id: null, // Логика для создания/поиска персоны и получения ID
-        org_id: null, // Логика для создания/поиска организации и получения ID
+        person_id: null,
+        org_id: null,
         value: 0,
         currency: 'USD',
-        user_id: null, // Логика для назначения пользователя
+        user_id: null,
         add_time: new Date().toISOString(),
-        stage_id: null, // Логика для определения ID стадии
+        stage_id: null,
         status: 'open',
         visible_to: '3',
         custom_fields: {
-          // Добавьте ваши настраиваемые поля здесь
         }
       };
 
